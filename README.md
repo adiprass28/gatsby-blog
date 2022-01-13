@@ -103,3 +103,131 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 Gatsby Cloud is an end-to-end cloud platform specifically built for the Gatsby framework that combines a modern developer experience with an optimized, global edge network.
 
 <!-- AUTO-GENERATED-CONTENT:END -->
+
+BLOG:
+
+# Build Blog with Gatsby.js
+
+Prequisites:
+- Node.js
+- NPM
+- Git
+- Gatsby CLI
+- Visual Studio Code
+
+## Create a Website using Gatsby Starter
+
+1. In terminal, run:
+```bash
+gatsby new {project-name} https://github.com/gatsbyjs/gatsby-starter-hello-world
+cd {project-name}
+gatsby develop
+```
+
+## Add Plugins to Your Blog Site
+
+1. Install gatsby-source-filesystem plugin
+```bash
+npm install gatsby-source-filesystem
+```
+2. Use this code
+```javascript
+// gatsby-config.js
+
+module.exports = {
+  plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/images/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `data`,
+        path: `${__dirname}/src/posts/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `data`,
+        path: `${__dirname}/src/pages/`,
+      },
+    },
+  ],
+}
+```
+3. In src folder, add posts and images directories.
+4. install gatsby-transformer-sharp
+visit https://www.gatsbyjs.com/plugins/gatsby-transformer-sharp/
+```bash
+npm install gatsby-transformer-sharp gatsby-plugin-sharp
+```
+```javascript
+// gatsby-config.js
+module.exports = {
+  plugins: [`gatsby-plugin-sharp`, `gatsby-transformer-sharp`],
+}
+```
+5. Install gatsby-plugin-mdx
+visit https://www.gatsbyjs.com/plugins/gatsby-plugin-mdx/
+```shell
+npm install gatsby-plugin-mdx @mdx-js/mdx @mdx-js/react
+npm install gatsby-remark-images
+```
+```javascript
+// gatsby-config.js
+module.exports = {
+  plugins: [
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+      },
+    },
+  ],
+}
+```
+```javascript
+{
+  resolve: `gatsby-plugin-mdx`,
+  options: {
+    gatsbyRemarkPlugins: [
+      {
+        resolve: `gatsby-remark-images`,
+        options: {
+          maxWidth: 1200,
+        },
+      },
+    ],
+  },
+},
+```
+6. Install gatsby-plugin-google-fonts-v2
+visit https://www.gatsbyjs.com/plugins/gatsby-plugin-google-fonts-v2/
+```bash
+npm install gatsby-plugin-google-fonts-v2
+```
+```javascript
+// gatsby-config.js
+plugins: [
+  {
+    resolve: `gatsby-plugin-google-fonts-v2`,
+    options: {
+      fonts: [
+        {
+          family: 'JetBrains Mono',
+          weights: ['100', '400']
+        },
+        {
+          family: 'Roboto Mono',
+          weights: ['100..400']
+        }
+      ]
+    }
+  }
+];
+```
