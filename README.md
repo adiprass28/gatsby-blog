@@ -332,6 +332,7 @@ export default {
 2. 
 ```javascript
 // gatsby-browser.js
+import React from "react"
 import { ThemeProvider } from "styled-components"
 import Theme from "./src/themes/theme"
 
@@ -341,4 +342,28 @@ export const wrapRootElement = ({ element }) => (
   </ThemeProvider>
 )
 ```
-3. 
+
+## Create Global Styles
+
+1. 
+```javascript
+// gatsby-browser.js
+// gatsby-ssr.js
+
+...
+import { createGlobalStyle, ThemeProvider } from "styled-components"
+import Theme from "./src/themes/theme.js"
+
+const GlobalStyles = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body, html {
+    font-family: ${props.theme.fonts.main}
+    height: 100%;
+    background-color: ${props.theme.colors.light1}
+  }
+`
