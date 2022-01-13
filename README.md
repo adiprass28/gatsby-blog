@@ -325,3 +325,20 @@ export default {
   },
 }
 ```
+
+## Styled Components Theme Provider
+
+1. Create two file in main directory, "gatsby-browser.js" and "gatsby-ssr.js" file
+2. 
+```javascript
+// gatsby-browser.js
+import { ThemeProvider } from "styled-components"
+import Theme from "./src/themes/theme"
+
+export const wrapRootElement = ({ element }) => (
+  <ThemeProvider theme={Theme}>
+    {element}
+  </ThemeProvider>
+)
+```
+3. 
