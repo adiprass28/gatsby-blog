@@ -234,8 +234,8 @@ plugins: [
 
 ## Add Markdown Files in Posts Folder
 
-1. Create "my-first-post" name folder in src/posts folder
-2. Create "index.mdx" name file and copy image from external resource in my-first-post folder
+1. Create "my-first-post" name folder in src/posts folder.
+2. Create "index.mdx" name file and copy image from external resource in my-first-post folder.
 3. In index.mdx file, create:
 ```mdx
 ---
@@ -273,5 +273,55 @@ query MyQuery {
   }
 }
 ```
-7. Create more folder in srrc/posts folder, then repeat from step 1.
+7. Create more folder in srrc/posts folder, then repeat from step 1 with a little modification.
 
+## Use Styled Components
+
+1. visit to https://www.gatsbyjs.com/docs/how-to/styling/styled-components/ for more information
+2. In terminal, run:
+```bash
+npm install gatsby-plugin-styled-components styled-components babel-plugin-styled-components
+```
+3. In src folder create "themes" name folder then create "theme.js" file in it.
+4. 
+```javascript
+// gatsby-config.js
+module.exports = {
+  plugins: [`gatsby-plugin-styled-components`],
+}
+```
+5. 
+```javascript
+// src/themes/theme.js
+export default {
+  fonts: {
+    main: "Muli, sans-serif",
+    code: "Roboto Mono, monospace",
+  },
+  colors: {
+    main1: "hsl(207,70%,59%)",
+    dark1: "hsl(227,2%,12%)",
+    light1: "hsl(0,0%,97%)",
+  },
+  breakpoints: {
+    mobile: "only screen and (max-width: 50rem)",
+    tablet: "only screen and (max-width: 60rem)",
+  },
+  spacing: {
+    xxSmall: ".25rem",
+    xSmall: ".5rem",
+    small: "1rem",
+    medium: "2rem",
+    large: "3rem",
+    xLarge: "4rem",
+    xxLarge: "6rem"
+  },
+  animations: {
+    button: "box-shadow 0.3s ease",
+    link: "color 0.2s ease",
+  },
+  shadows: {
+    shadow1: "0px 5px, 20px rgba(30, 30, 31, 0.05)",
+  },
+}
+```
