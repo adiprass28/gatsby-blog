@@ -231,3 +231,47 @@ plugins: [
   }
 ];
 ```
+
+## Add Markdown Files in Posts Folder
+
+1. Create "my-first-post" name folder in src/posts folder
+2. Create "index.mdx" name file and copy image from external resource in my-first-post folder
+3. In index.mdx file, create:
+```mdx
+---
+title: My First Post! Hello world!
+slug: my-first-post
+date: 2022-01-13
+featureImage: gurun.jpg
+excerpt: lorem ipsum
+---
+```
+4. In terminal, run:
+```bash
+gatsby develop
+```
+5. Open http://localhost:8000/___graphql link.
+6. In GaphiQL console to see the specified data, run:
+```
+query MyQuery {
+  allMdx {
+    edges {
+      node {
+        frontmatter {
+          date
+          excerpt
+          slug
+          title
+          featureImage {
+            childrenImageSharp {
+              fixed
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+7. Create more folder in srrc/posts folder, then repeat from step 1.
+
