@@ -32,10 +32,19 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-styled-components`,
     {
-      resolve: `gatsby-plugin-mdx`,
+      resolve: `gatsby-plugin-google-fonts-v2`,
       options: {
-        extensions: [`.mdx`, `.md`],
-      },
+        fonts: [
+          {
+            family: 'Roboto Mono',
+            weights: ['100..400']
+          },
+          {
+            family: 'JetBrains Mono',
+            weights: ['100', '400']
+          },
+        ]
+      }
     },
     {
       resolve: `gatsby-plugin-mdx`,

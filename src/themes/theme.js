@@ -1,6 +1,6 @@
-const Theme  = {
+const Theme = {
   fonts: {
-    main: "Muli, sans-serif",
+    main: "Neonderthaw, cursive",
     code: "Roboto Mono, monospace",
   },
   colors: {

@@ -295,7 +295,7 @@ module.exports = {
 // src/themes/theme.js
 export default {
   fonts: {
-    main: "Muli, sans-serif",
+    main: "Neonderthaw, cursive",
     code: "Roboto Mono, monospace",
   },
   colors: {
@@ -348,6 +348,7 @@ export const wrapRootElement = ({ element }) => (
 1. 
 ```javascript
 // gatsby-browser.js
+// and
 // gatsby-ssr.js
 
 ...
@@ -362,8 +363,16 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body, html {
-    font-family: ${props.theme.fonts.main}
+    font-family: ${props => props.theme.Theme.fonts.main};
     height: 100%;
-    background-color: ${props.theme.colors.light1}
+    background-color: ${props => props.theme.colors.dark1};
   }
 `
+export const wrapRootElement = ({ element }) => (
+  <ThemeProvider theme={Theme}>
+    <GlobalStyles />
+    {element}
+  </ThemeProvider>
+)
+
+```
